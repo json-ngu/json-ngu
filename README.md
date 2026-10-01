@@ -1,16 +1,29 @@
-## Hi there 👋
+<div align="center">
 
-<!--
-**json-ngu/json-ngu** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+# Jason Nguyen
 
-Here are some ideas to get you started:
+Software Engineering · San José State University
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+[LinkedIn](https://www.linkedin.com/in/jnguyen2617/) · [Email](mailto:jnguyen2617@gmail.com) · [Borderify](https://borderify.vercel.app/)
+
+</div>
+
+<br/>
+
+Software Engineering student graduating December 2027, interested in software engineering, quantitative research, and machine learning. Looking for Summer 2027 internships.
+
+Currently planning out a Python backtester to test trading strategies on historical data.
+
+### Projects
+
+**[MindMerge](https://github.com/json-ngu/CS157A-4)** — A web platform that records the reasoning behind team decisions: the context, the options considered, and why the final choice was made. I lead a 3-person team and set up the architecture.<br/>
+`Java` `JSP` `JDBC` `MySQL` `Tomcat`
+
+**[Borderify](https://github.com/json-ngu/borderify)** — Built at SJHacks 2026. A browser-based tool that adds borders to photos so Instagram carousels don't auto-crop them. I built the landing page and editor features like symmetric cropping and center snapping.<br/>
+`TypeScript` `React` `Tailwind CSS` `HTML5 Canvas`
+
+### Tech
+
+**Languages** · Python, C++, Java, SQL, TypeScript, JavaScript<br/>
+**Libraries** · React, PyTorch, NumPy, Pandas<br/>
+**Tools** · Git, Linux, Docker, MySQL
