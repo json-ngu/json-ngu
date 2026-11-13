@@ -8,11 +8,17 @@
 
 </div>
 
-<br/>
+---
 
 Software Engineering student graduating December 2027, interested in software engineering, quantitative research, and machine learning. Looking for Summer 2027 internships.
 
-Currently planning out a Python backtester to test trading strategies on historical data.
+---
+
+### Currently Working On
+
+Planning out a Python backtester to test trading strategies on historical data.
+
+---
 
 ### Projects
 
@@ -24,12 +30,16 @@ Currently planning out a Python backtester to test trading strategies on histori
 
 A web platform that records the reasoning behind team decisions: the context, the options considered, and why the final choice was made.
 
+<br/>
+
 </td>
 <td width="50%" valign="top">
 
 **[Borderify](https://github.com/json-ngu/borderify)**
 
 Built at SJHacks 2026. A browser-based tool that adds borders to photos so Instagram carousels don't auto-crop them.
+
+<br/>
 
 </td>
 </tr>
@@ -47,7 +57,9 @@ Built at SJHacks 2026. A browser-based tool that adds borders to photos so Insta
 </tr>
 </table>
 
-### Tech
+---
+
+### Tech Stack
 
 **Languages**<br/>
 ![Python](assets/v3/badge-python.svg)
