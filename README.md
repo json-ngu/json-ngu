@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="assets/banner.svg" width="100%" alt="Jason Nguyen. Software Engineering, San José State University. Interested in Quant, SWE and ML." />
+<p><img src="assets/banner.svg" width="100%" alt="Jason Nguyen. Software Engineering, San José State University." /></p>
 
 [![LinkedIn](assets/badge-linkedin.svg)](https://www.linkedin.com/in/jnguyen2617/)
 [![Email](assets/badge-email.svg)](mailto:jnguyen2617@gmail.com)
