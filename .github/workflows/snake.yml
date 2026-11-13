@@ -27,7 +27,7 @@ jobs:
       - name: Add labels and smooth the progress bar
         run: |
           sudo chown -R "$(id -u)" dist
-          node .github/scripts/tweak-snake.mjs dist/snake-dark.svg "#8b949e" "#0d1117"
+          node .github/scripts/tweak-snake.mjs dist/snake-dark.svg "#ffffff" "#0d1117"
           node .github/scripts/tweak-snake.mjs dist/snake-light.svg "#57606a" "#ffffff"
 
       - uses: crazy-max/ghaction-github-pages@v4
