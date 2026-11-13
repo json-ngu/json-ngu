@@ -38,14 +38,14 @@ for (let c = 0; c < cols; c++) {
     const fitsBefore = c - lastLabelCol >= 3;
     const isPartialFirst = c === 0 && weekStart(1).getUTCMonth() !== m;
     if (fitsBefore && !isPartialFirst) {
-      labels.push(`<text x="${minX + c * STEP}" y="${minY - 5}" ${FONT}>${MONTHS[m]}</text>`);
+      labels.push(`<text x="${minX + c * STEP}" y="${minY - 8}" ${FONT}>${MONTHS[m]}</text>`);
       lastLabelCol = c;
     }
   }
   prevMonth = m;
 }
 for (const [row, name] of [[1, "Mon"], [3, "Wed"], [5, "Fri"]]) {
-  labels.push(`<text x="${minX - 6}" y="${minY + row * STEP + CELL - 2}" text-anchor="end" ${FONT}>${name}</text>`);
+  labels.push(`<text x="${minX - 9}" y="${minY + row * STEP + CELL - 2}" text-anchor="end" ${FONT}>${name}</text>`);
 }
 
 // Insert before the first cell so the grid, bar and snake all draw on top.
@@ -56,10 +56,20 @@ svg = svg.slice(0, firstCell) + `<g>${labels.join("")}</g>` + svg.slice(firstCel
 const vb = svg.match(/viewBox="(-?[\d.]+) (-?[\d.]+) ([\d.]+) ([\d.]+)"/);
 if (!vb) throw new Error("no viewBox");
 const [x, y, w, h] = vb.slice(1).map(Number);
-const EXTRA_LEFT = 18;
+const EXTRA_LEFT = 21;
 svg = svg
   .replace(vb[0], `viewBox="${x - EXTRA_LEFT} ${y} ${w + EXTRA_LEFT} ${h}"`)
   .replace(/(<svg[^>]*?) width="[\d.]+"/, `$1 width="${w + EXTRA_LEFT}"`);
+
+// ---------- progress bar outline ----------
+// A thin border around the whole bar track so its full length is visible before it fills.
+const bars = [...svg.matchAll(/<rect class="u[^"]*" height="([\d.]+)" width="([\d.]+)" x="(-?[\d.]+)" y="(-?[\d.]+)"/g)]
+  .map((m) => ({ h: Number(m[1]), w: Number(m[2]), x: Number(m[3]), y: Number(m[4]) }));
+if (!bars.length) throw new Error("no progress-bar segments found; snk output format changed?");
+const bx = Math.min(...bars.map((b) => b.x)), bEnd = Math.max(...bars.map((b) => b.x + b.w));
+const by = bars[0].y, bh = bars[0].h, PAD = 2;
+const outline = `<rect x="${bx - PAD}" y="${by - PAD}" width="${+(bEnd - bx + 2 * PAD).toFixed(1)}" height="${bh + 2 * PAD}" rx="3" fill="none" stroke="${color}" stroke-opacity="0.6" stroke-width="1"/>`;
+svg = svg.replace(/<\/svg>\s*$/, `${outline}</svg>`);
 
 // ---------- smooth progress bar ----------
 // snk writes each bar segment as steps like "33.78%,35.75%{transform:scale(0.364,1)}":
