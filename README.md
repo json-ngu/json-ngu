@@ -1,10 +1,10 @@
 <div align="center">
 
-<p><img src="assets/banner.svg" width="100%" alt="Jason Nguyen. Software Engineering, San José State University." /></p>
+<p><img src="assets/v2/banner.svg" width="100%" alt="Jason Nguyen. Software Engineering, San José State University." /></p>
 
-[![LinkedIn](assets/badge-linkedin.svg)](https://www.linkedin.com/in/jnguyen2617/)
-[![Email](assets/badge-email.svg)](mailto:jnguyen2617@gmail.com)
-[![Borderify](assets/badge-borderify-v2.svg)](https://borderify.vercel.app/)
+[![LinkedIn](assets/v2/badge-linkedin.svg)](https://www.linkedin.com/in/jnguyen2617/)
+[![Email](assets/v2/badge-email.svg)](mailto:jnguyen2617@gmail.com)
+[![Borderify](assets/v2/badge-borderify.svg)](https://borderify.vercel.app/)
 
 </div>
 
@@ -50,21 +50,21 @@ Built at SJHacks 2026. A browser-based tool that adds borders to photos so Insta
 ### Tech
 
 **Languages**<br/>
-![Python](assets/badge-python.svg)
-![C++](assets/badge-cpp.svg)
-![Java](assets/badge-java.svg)
-![SQL](assets/badge-sql.svg)
-![TypeScript](assets/badge-typescript.svg)
-![JavaScript](assets/badge-javascript.svg)
+![Python](assets/v2/badge-python.svg)
+![C++](assets/v2/badge-cpp.svg)
+![Java](assets/v2/badge-java.svg)
+![SQL](assets/v2/badge-sql.svg)
+![TypeScript](assets/v2/badge-typescript.svg)
+![JavaScript](assets/v2/badge-javascript.svg)
 
 **Libraries**<br/>
-![React](assets/badge-react.svg)
-![PyTorch](assets/badge-pytorch.svg)
-![NumPy](assets/badge-numpy.svg)
-![Pandas](assets/badge-pandas.svg)
+![React](assets/v2/badge-react.svg)
+![PyTorch](assets/v2/badge-pytorch.svg)
+![NumPy](assets/v2/badge-numpy.svg)
+![Pandas](assets/v2/badge-pandas.svg)
 
 **Tools**<br/>
-![Git](assets/badge-git.svg)
-![Linux](assets/badge-linux.svg)
-![Docker](assets/badge-docker.svg)
-![MySQL](assets/badge-mysql.svg)
+![Git](assets/v2/badge-git.svg)
+![Linux](assets/v2/badge-linux.svg)
+![Docker](assets/v2/badge-docker.svg)
+![MySQL](assets/v2/badge-mysql.svg)
