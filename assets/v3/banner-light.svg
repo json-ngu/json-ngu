@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="300" viewBox="0 0 1200 300" role="img" aria-labelledby="t">
+<title id="t">Jason Nguyen. Software Engineering, San José State University.</title>
+<defs>
+  <linearGradient id="base" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#f3f6fb"/>
+  </linearGradient>
+  <radialGradient id="glow" cx="0.85" cy="0.1" r="0.6">
+    <stop offset="0" stop-color="#c9dcf7" stop-opacity="1"/><stop offset="1" stop-color="#c9dcf7" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#fff" stop-opacity="1"/><stop offset="0.3" stop-color="#fff" stop-opacity="0.9"/>
+    <stop offset="0.52" stop-color="#fff" stop-opacity="0"/>
+  </linearGradient>
+  <mask id="m"><rect width="1200" height="300" fill="url(#fade)"/></mask>
+  <clipPath id="c"><rect width="1200" height="300" rx="16"/></clipPath>
+</defs>
+<g clip-path="url(#c)">
+  <rect width="1200" height="300" fill="url(#base)"/>
+  <rect width="1200" height="300" fill="url(#glow)"/>
+  <g mask="url(#m)" opacity="0.55" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="15"><text x="56" y="44" xml:space="preserve"><tspan fill="#6e7781"># walk-forward backtest over daily bars</tspan></text><text x="56" y="65" xml:space="preserve"><tspan fill="#cf222e">def</tspan><tspan fill="#24292f"> </tspan><tspan fill="#8250df">backtest</tspan><tspan fill="#24292f">(prices, signal, cash=</tspan><tspan fill="#0550ae">10_000</tspan><tspan fill="#24292f">):</tspan></text><text x="56" y="86" xml:space="preserve"><tspan fill="#24292f">    position, equity = </tspan><tspan fill="#0550ae">0</tspan><tspan fill="#24292f">, []</tspan></text><text x="56" y="107" xml:space="preserve"><tspan fill="#24292f">    </tspan><tspan fill="#cf222e">for</tspan><tspan fill="#24292f"> t </tspan><tspan fill="#cf222e">in</tspan><tspan fill="#24292f"> </tspan><tspan fill="#8250df">range</tspan><tspan fill="#24292f">(</tspan><tspan fill="#0550ae">1</tspan><tspan fill="#24292f">, </tspan><tspan fill="#8250df">len</tspan><tspan fill="#24292f">(prices)):</tspan></text><text x="56" y="128" xml:space="preserve"><tspan fill="#24292f">        </tspan><tspan fill="#cf222e">if</tspan><tspan fill="#24292f"> signal[t - </tspan><tspan fill="#0550ae">1</tspan><tspan fill="#24292f">] &gt; </tspan><tspan fill="#0550ae">0</tspan><tspan fill="#24292f"> </tspan><tspan fill="#cf222e">and</tspan><tspan fill="#24292f"> position == </tspan><tspan fill="#0550ae">0</tspan><tspan fill="#24292f">:</tspan></text><text x="56" y="149" xml:space="preserve"><tspan fill="#24292f">            position = cash // prices[t]</tspan></text><text x="56" y="170" xml:space="preserve"><tspan fill="#24292f">            cash -= position * prices[t]</tspan></text><text x="56" y="191" xml:space="preserve"><tspan fill="#24292f">        </tspan><tspan fill="#cf222e">elif</tspan><tspan fill="#24292f"> signal[t - </tspan><tspan fill="#0550ae">1</tspan><tspan fill="#24292f">] &lt; </tspan><tspan fill="#0550ae">0</tspan><tspan fill="#24292f"> </tspan><tspan fill="#cf222e">and</tspan><tspan fill="#24292f"> position &gt; </tspan><tspan fill="#0550ae">0</tspan><tspan fill="#24292f">:</tspan></text><text x="56" y="212" xml:space="preserve"><tspan fill="#24292f">            cash += position * prices[t]</tspan></text><text x="56" y="233" xml:space="preserve"><tspan fill="#24292f">            position = </tspan><tspan fill="#0550ae">0</tspan></text><text x="56" y="254" xml:space="preserve"><tspan fill="#24292f">        equity.</tspan><tspan fill="#8250df">append</tspan><tspan fill="#24292f">(cash + position * prices[t])</tspan></text><text x="56" y="275" xml:space="preserve"><tspan fill="#24292f">    </tspan><tspan fill="#cf222e">return</tspan><tspan fill="#24292f"> equity</tspan></text></g>
+</g>
+<rect x="0.5" y="0.5" width="1199" height="299" rx="16" fill="none" stroke="#d0d7de"/>
+<g text-anchor="end">
+  <text x="1140" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="64" font-weight="700" letter-spacing="-1.5" fill="#1f2328">Jason Nguyen</text>
+  <text x="1140" y="194" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="24" fill="#57606a">Software Engineering · San José State University</text>
+</g>
+</svg>
