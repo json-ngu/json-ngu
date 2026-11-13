@@ -22,11 +22,13 @@ jobs:
           # colors match the README's blue/gray badges: empty day -> busiest day
           outputs: |
             dist/snake-dark.svg?color_snake=#8fb8f0&color_dots=#161b22,#1b3a6b,#24508f,#2f6bc0,#5b93e0&color_dot_border=#0d1117
+            dist/snake-light.svg?color_snake=#1b3a6b&color_dots=#ebeef3,#c9dcf7,#8fb3e8,#4a7fd0,#1b3a6b&color_dot_border=#ffffff
 
       - name: Add labels and smooth the progress bar
         run: |
           sudo chown -R "$(id -u)" dist
-          node .github/scripts/tweak-snake.mjs dist/snake-dark.svg "#8b949e"
+          node .github/scripts/tweak-snake.mjs dist/snake-dark.svg "#8b949e" "#0d1117"
+          node .github/scripts/tweak-snake.mjs dist/snake-light.svg "#57606a" "#ffffff"
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:

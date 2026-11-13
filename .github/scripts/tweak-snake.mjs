@@ -2,13 +2,14 @@
 //   1. add month labels (top) and weekday labels (left), tucked close to the grid
 //      and drawn underneath the snake so it slides over them;
 //   2. make the progress bar grow smoothly instead of jumping at each bite.
-// Usage: node tweak-snake.mjs <file.svg> <label-color> [YYYY-MM-DD run date, default today UTC]
+// Usage: node tweak-snake.mjs <file.svg> <label-color> <card-color> [YYYY-MM-DD run date, default today UTC]
 //
 // snk draws one column per week (Sunday..Saturday rows), 16px apart, ending with the
 // week that contains the run date. We rely on that layout and on the cells' x/y attributes.
 import fs from "node:fs";
 
-const [file, color, dateArg] = process.argv.slice(2);
+const [file, color, cardColor, dateArg] = process.argv.slice(2);
+if (!cardColor) throw new Error("usage: tweak-snake.mjs <file.svg> <label-color> <card-color> [date]");
 let svg = fs.readFileSync(file, "utf8");
 
 const STEP = 16, CELL = 12;
@@ -70,6 +71,19 @@ const bx = Math.min(...bars.map((b) => b.x)), bEnd = Math.max(...bars.map((b) =>
 const by = bars[0].y, bh = bars[0].h, PAD = 2;
 const outline = `<rect x="${bx - PAD}" y="${by - PAD}" width="${+(bEnd - bx + 2 * PAD).toFixed(1)}" height="${bh + 2 * PAD}" rx="3" fill="none" stroke="${color}" stroke-opacity="0.6" stroke-width="1"/>`;
 svg = svg.replace(/<\/svg>\s*$/, `${outline}</svg>`);
+
+// ---------- background card ----------
+// Paint a panel in the page color for this theme, with a little padding around the graph.
+const BG = cardColor, CARD_PAD = 14;
+const vb2 = svg.match(/viewBox="(-?[\d.]+) (-?[\d.]+) ([\d.]+) ([\d.]+)"/);
+const [cx, cy, cw, ch] = vb2.slice(1).map(Number);
+const [px, py, pw, ph] = [cx - CARD_PAD, cy - CARD_PAD, cw + 2 * CARD_PAD, ch + 2 * CARD_PAD];
+svg = svg
+  .replace(vb2[0], `viewBox="${px} ${py} ${pw} ${ph}"`)
+  .replace(/(<svg[^>]*?) width="[\d.]+"/, `$1 width="${pw}"`)
+  .replace(/(<svg[^>]*?) height="[\d.]+"/, `$1 height="${ph}"`);
+const firstLabel = svg.indexOf("<g><text");
+svg = svg.slice(0, firstLabel) + `<rect x="${px}" y="${py}" width="${pw}" height="${ph}" rx="12" fill="${BG}"/>` + svg.slice(firstLabel);
 
 // ---------- smooth progress bar ----------
 // snk writes each bar segment as steps like "33.78%,35.75%{transform:scale(0.364,1)}":
