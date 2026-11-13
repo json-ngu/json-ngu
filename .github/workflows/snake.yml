@@ -14,6 +14,8 @@ jobs:
   generate:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
+
       - uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
@@ -21,6 +23,12 @@ jobs:
           outputs: |
             dist/snake-dark.svg?color_snake=#8fb8f0&color_dots=#161b22,#1b3a6b,#24508f,#2f6bc0,#5b93e0&color_dot_border=#0d1117
             dist/snake-light.svg?color_snake=#1b3a6b&color_dots=#ebeef3,#c9dcf7,#8fb3e8,#4a7fd0,#1b3a6b&color_dot_border=#ffffff
+
+      - name: Add month and weekday labels
+        run: |
+          sudo chown -R "$(id -u)" dist
+          node .github/scripts/label-snake.mjs dist/snake-dark.svg "#8b949e"
+          node .github/scripts/label-snake.mjs dist/snake-light.svg "#57606a"
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:

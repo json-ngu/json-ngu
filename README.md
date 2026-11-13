@@ -32,7 +32,7 @@ Planning out a Python backtester to test trading strategies on historical data.
 <tr>
 <td width="50%" valign="top">
 
-**[MindMerge](https://github.com/json-ngu/CS157A-4)**
+**[MindMerge](https://github.com/json-ngu/mindmerge)**
 
 A web platform that records the reasoning behind team decisions: the context, the options considered, and why the final choice was made.
 
