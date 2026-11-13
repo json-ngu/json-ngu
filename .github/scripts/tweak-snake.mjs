@@ -34,8 +34,9 @@ try {
 
 function rerouteSnake(svg) {
   const STEP_MS = 100, PAUSE_MS = 150, BLINK_MS = 120, BLINKS = 3;
-  // after each reset: grid empty -> contribution cells fade in left to right -> snake starts
-  const APPEAR_DELAY_MS = 250, APPEAR_SPAN_MS = 900, FADE_MS = 150, AFTER_APPEAR_MS = 350;
+  // after each reset: blank (no snake, no cells) -> snake appears -> cells fade in left to right -> snake starts
+  const RESET_BLANK_MS = 600;
+  const APPEAR_DELAY_MS = RESET_BLANK_MS + 250, APPEAR_SPAN_MS = 900, FADE_MS = 150, AFTER_APPEAR_MS = 350;
   const D = Number(svg.match(/(\d+)ms/)[1]); // loop length, e.g. "15100ms"
   const N = Math.round(D / STEP_MS), stepPct = 100 / N;
   const cellRects = [...svg.matchAll(/<rect class="c( c[0-9a-z]+)?" x="(-?[\d.]+)" y="(-?[\d.]+)"/g)]; // snk names cells c0..c9, ca, cb, ...
@@ -147,8 +148,8 @@ function rerouteSnake(svg) {
       `.s.s${k}{transform:translate(${sx}px,${sy}px);animation-name:s${k},sflick`);
   }
 
-  // flicker: on until the pause ends, then off/on BLINKS times
-  let flick = `0%,${pct(moveEnd + PAUSE_MS)}%{opacity:1}`;
+  // hidden during the reset blank, then on until the pause ends, then off/on BLINKS times
+  let flick = `0%,${pct(RESET_BLANK_MS)}%{opacity:0}${nudge(RESET_BLANK_MS)}%,${pct(moveEnd + PAUSE_MS)}%{opacity:1}`;
   for (let b = 0; b < BLINKS; b++) {
     const off = moveEnd + PAUSE_MS + 2 * b * BLINK_MS, on = off + BLINK_MS;
     flick += `${nudge(off)}%,${pct(on)}%{opacity:0}${nudge(on)}%,${b === BLINKS - 1 ? 100 : pct(on + BLINK_MS)}%{opacity:1}`;
