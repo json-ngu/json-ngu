@@ -4,7 +4,6 @@
 
 [![LinkedIn](assets/v5/badge-linkedin.svg)](https://www.linkedin.com/in/jnguyen2617/)
 [![Email](assets/v5/badge-email.svg)](mailto:jnguyen2617@gmail.com)
-[![Borderify](assets/v5/badge-borderify.svg)](https://borderify.vercel.app/)
 
 </div>
 
